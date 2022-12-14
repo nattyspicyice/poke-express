@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express')
-// const pokemon = require("./models/pokemon")
 const app = express()
 const mongoose = require("mongoose");
 const Pokemon = require('./models/pokemon');
@@ -42,7 +41,6 @@ app.get("/pokemon/new", (req, res) => {
 
 //UPDATE ROUTE
 app.post('/pokemon', (req, res) => {
-    //pokemon.push(req.body)
     Pokemon.create(req.body, (error, createdPokemon) => {
         res.redirect('/pokemon')
     })
@@ -56,14 +54,6 @@ app.get("/pokemon/:id", (req, res) => {
       });
     });
   });
-// app.get("/pokemon/:id", (req, res) => {
-//     // Pokemon.findById(req.params.id, (err, foundPokemon) => {
-//     //     res.send(foundPokemon)
-//     // })
-    
-//     res.render("Show", {pokemon: pokemon[req.params.id]})
-// })
-
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)

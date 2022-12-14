@@ -9,8 +9,7 @@ class Index extends Component {
           height: "100%",
           backgroundColor: "lightblue",
           fontFamily: "Monaco",
-        }}
-      >
+        }}>
         <div>
           <nav>
             <a href="/pokemon/new">Add to the Pokedex!</a>
@@ -31,7 +30,7 @@ class Index extends Component {
             {pokemon.map((pokemon, i) => {
               return (
                 <li key={i} style={{}}>
-                  <a href={`/pokemon/${i}`}>{pokemon.name}</a>
+                  <a href={`/pokemon/${pokemon.id}`}>{pokemon.name}</a>
                 </li>
               );
             })}
