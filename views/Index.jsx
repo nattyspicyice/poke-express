@@ -9,6 +9,7 @@ class Index extends Component {
           height: "100%",
           backgroundColor: "lightblue",
           fontFamily: "Monaco",
+          margin: "50px",
         }}>
         <div>
           <nav>

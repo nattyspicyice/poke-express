@@ -33,16 +33,20 @@ mongoose.connection.once('open', () => {
 
 //SEED ROUTE
 app.get('/pokemon/seed', (req, res)=>{
-    Pokemon.create([
-        {name: "Bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
-        {name: "Ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
-        {name: "Venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
-        {name: "Charmander", img: "http://img.pokemondb.net/artwork/charmander"},
-        {name: "Charizard", img: "http://img.pokemondb.net/artwork/charizard"},
-        {name: "Squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
-        {name: "Wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
-    ], (err, seededPokemon) =>{
-        res.redirect('/pokemon')
+    const seededPokemon =[
+        {name: "Bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur.jpg"},
+        {name: "Ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur.jpg"},
+        {name: "Venusaur", img: "http://img.pokemondb.net/artwork/venusaur.jpg"},
+        {name: "Charmander", img: "http://img.pokemondb.net/artwork/charmander.jpg"},
+        {name: "Charizard", img: "http://img.pokemondb.net/artwork/charizard.jpg"},
+        {name: "Squirtle", img: "http://img.pokemondb.net/artwork/squirtle.jpg"},
+        {name: "Wartortle", img: "http://img.pokemondb.net/artwork/wartortle.jpg"}
+    ]
+
+    Pokemon.deleteMany({}).then((data) => {
+        Pokemon.create(seededPokemon).then((data) => {
+            res.redirect('/pokemon')
+        })
     })
 })
 
@@ -68,7 +72,8 @@ app.put('/pokemon/:id', (req, res) => {
 
 //DELETE ROUTE
 app.delete('/pokemon/:id', (req, res) => {
-    Pokemon.findByIdAndRemove(req.params.id, (err, data) => {
+    Pokemon.findByIdAndRemove(req.params.id, (err, deletedPokemon) => {
+        console.log(deletedPokemon)
         res.redirect('/pokemon');
     })
 })

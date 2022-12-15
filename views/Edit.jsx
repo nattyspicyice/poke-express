@@ -5,6 +5,12 @@ class Edit extends Component {
         const {pokemon} = this.props;
         console.log(pokemon)
         return(
+            <html
+                style={{
+                height: "100%",
+                backgroundColor: "lightblue",
+                fontFamily: "Monaco",
+                }}>
             <div>
                 <nav>
                     <a href ="/pokemon">Back</a>
@@ -16,6 +22,7 @@ class Edit extends Component {
                     <input type="submit" name="submit changes" value="Add Changes" />
                 </form>
             </div>
+            </html>
         )
     }
 }
