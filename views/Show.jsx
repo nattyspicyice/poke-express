@@ -37,7 +37,7 @@ class Show extends Component {
                     <h2>
                         {pokemon.name}
                     </h2>
-                    <img style={{border: "solid"}} src={`${pokemon.img}.jpg`} />
+                    <img style={{border: "solid"}} src={`${pokemon.img}`} />
                     <br />
                     <a href="/pokemon">Back</a>
                 </div>

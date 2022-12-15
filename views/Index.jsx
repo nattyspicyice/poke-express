@@ -30,7 +30,11 @@ class Index extends Component {
             {pokemon.map((pokemon, i) => {
               return (
                 <li key={i} style={{}}>
-                  <a href={`/pokemon/${pokemon.id}`}>{pokemon.name}</a>
+                  <a href={`/pokemon/${pokemon.id}`}>{pokemon.name}</a><br />
+                  <a href = {`/pokemon/${pokemon._id}/edit`}>Edit Pokemon</a>
+                  <form action ={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                    <input type="submit" value="Delete Pokemon" />
+                  </form>
                 </li>
               );
             })}

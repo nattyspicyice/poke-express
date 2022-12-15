@@ -5,8 +5,8 @@ const pokemonSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    image: {
-        type: String, //i want this to be a url if possible
+    img: {
+        type: String,
         require: false
     }})
 
