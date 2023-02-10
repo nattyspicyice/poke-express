@@ -1,5 +1,9 @@
 # Pokemon Express App
 
+## Deployment
+
+https://pokemon-express.onrender.com/pokemon
+
 MVC Full CRUD App
 
 Mongoose, Express, React, Node
